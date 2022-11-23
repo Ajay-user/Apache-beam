@@ -4,6 +4,7 @@ Data Engineering with Dataflow using Apache Beam
 
 ### Apache Beam 101
 
+Go to `Apache-beam/helloworld/`  to learn the basics then go to `Apache-beam/foundation/`
 
 #### Map, FlatMap and Filter:
 
