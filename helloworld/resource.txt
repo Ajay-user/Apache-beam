@@ -1,0 +1,11 @@
+https://beam.apache.org/releases/pydoc/current/index.html         --pydoc
+
+https://beam.apache.org/documentation/programming-guide/
+
+https://beam.apache.org/documentation/basics/
+
+https://beam.apache.org/documentation/transforms/python/elementwise/pardo/
+
+https://beam.apache.org/documentation/transforms/python/aggregation/combineglobally/
+
+https://beam.apache.org/documentation/programming-guide/#requirements-for-writing-user-code-for-beam-transforms
