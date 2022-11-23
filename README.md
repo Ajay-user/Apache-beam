@@ -63,3 +63,63 @@ Go to `Apache-beam/helloworld/`  to learn the basics then go to `Apache-beam/fou
 ##### Kvswap:
  ● Takes a collection of key-value pairs and returns a collection of key-value pairs
    which has each key and value swapped.
+
+
+
+##### Grouping Examples
+######  We use GroupBy to group all fruits by the first letter of their name.
+
+
+`
+ fruits=(
+            pipe |
+            "create fruits">>
+            beam.Create(['strawberry', 'raspberry', 'blueberry', 'blackberry', 'banana'])
+        )
+
+        # We use GroupBy to group all fruits by the first letter of their name.
+
+        first_letter=(
+            fruits 
+            |"group all fruits by the first letter of their name"
+            >>beam.GroupBy(lambda fruit:fruit[0])
+        )
+
+`
+
+##### GroupByKey
+Takes a keyed collection of elements and produces a collection where each element consists of a key and all values associated with that key.
+
+`
+with beam.Pipeline("DirectRunner") as pipe:
+    fruit=(pipe
+        |'Create produce counts'
+        >>beam.Create([
+            ('spring', '🍓'),
+            ('spring', '🥕'),
+            ('spring', '🍆'),
+            ('spring', '🍅'),
+            ('summer', '🥕'),
+            ('summer', '🍅'),
+            ('summer', '🌽'),
+            ('fall', '🥕'),
+            ('fall', '🍅'),
+            ('winter', '🍆'),])
+        |'group by key'
+        >>beam.GroupByKey()
+        |'print'
+        >>beam.Map(print)
+        )
+
+`
+* Aggregates all input elements by their key and allows downstream processing to consume all values associated with the key.
+* While GroupByKey performs this operation over a single input collection and thus a single type of input values,
+
+##### CoGroupByKey operates over multiple input collections.
+
+* As a result, the result for each key is a tuple of the values associated with that key in each input collection.
+
+
+
+
+
