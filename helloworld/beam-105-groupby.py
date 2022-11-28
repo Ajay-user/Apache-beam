@@ -30,7 +30,7 @@ if __name__ == "__main__":
         )
 
         # uncomment to see the output 
-        # first_letter | beam.Map(print)
+        first_letter | "first_letter" >> beam.Map(print)
 
         
         # We can group by a composite key consisting of multiple properties
@@ -42,6 +42,6 @@ if __name__ == "__main__":
         )
 
         # uncomment to see the output
-        # composite | beam.Map(print)
+        # composite | "composite" >> beam.Map(print)
 
 

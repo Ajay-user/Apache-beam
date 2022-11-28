@@ -47,7 +47,7 @@ if __name__ == "__main__":
         )
 
         # uncomment to see the output
-        # quantity | beam.Map(print)      
+        # quantity | "quantity" >> beam.Map(print)      
 
         # one can also aggregate multiple fields and by expressions
 
@@ -61,7 +61,7 @@ if __name__ == "__main__":
         
           
         # uncomment to see the output
-        # price | beam.Map(print) 
+        # price | "price" >> beam.Map(print) 
 
         # One can, of course, aggregate the same field multiple times as well.
         
@@ -76,7 +76,7 @@ if __name__ == "__main__":
         )
         
         # uncomment to see the output
-        # price_composite | beam.Map(print) 
+        # price_composite | "price-composite" >>beam.Map(print) 
             
 
         # illustrates a global grouping,  the grouping key is empty.
@@ -90,5 +90,5 @@ if __name__ == "__main__":
         )
         
         # uncomment to see the output
-        price_global | beam.Map(print) 
+        price_global | "price-global" >>beam.Map(print) 
 

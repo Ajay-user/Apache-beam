@@ -40,3 +40,22 @@ with beam.Pipeline('DirectRunner') as pipe:
     )
 
 
+# suppose our data has nothing in common
+
+    new_produce = (
+        pipe
+        |"create new products that has nothing in common"
+        >>beam.Create([{'🥑', '🥕', '🌽'}, {'🍌', '🍅', '🌶️'}]) 
+    )
+
+    # lets combine them 
+    common_items = (
+        new_produce
+        |"combine the items and output the intersection"
+        >>beam.CombineGlobally(lambda sets: set.intersection(*sets))
+        |"lets print the intersection"
+        >>beam.Map(print)
+    ) 
+
+
+

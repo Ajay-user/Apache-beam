@@ -42,7 +42,7 @@ if __name__ == "__main__":
         )
         
         # uncomment to see the output
-        # grouped | beam.Map(print)
+        # grouped | "group" >>beam.Map(print)
 
         composite = (
             grocery
@@ -51,7 +51,7 @@ if __name__ == "__main__":
         )
 
         # uncomment to see the output
-        # composite | beam.Map(print)      
+        # composite | "composite" >> beam.Map(print)      
         
           
 

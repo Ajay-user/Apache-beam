@@ -47,3 +47,10 @@ with beam.Pipeline('DirectRunner') as pipe:
         |"print"
         >>beam.Map(print)
     )
+
+
+  # output
+# ('Apple', {'icons': ['🍎', '🍏'], 'duration': ['perennial']})
+# ('Eggplant', {'icons': ['🍆'], 'duration': []})
+# ('Tomato', {'icons': ['🍅'], 'duration': ['perennial', 'annual']})
+# ('Carrot', {'icons': [], 'duration': ['biennial']})
