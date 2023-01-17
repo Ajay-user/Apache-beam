@@ -24,7 +24,9 @@ class ProductPercentage(beam.CombineFn):
         return {}
     
     def add_input(self, mutable_accumulator, element):
-        mutable_accumulator[element[0]] = element[1]
+        if element[0] not in mutable_accumulator:
+            mutable_accumulator[element[0]] = 0
+        mutable_accumulator[element[0]] += element[1]
         return mutable_accumulator
     
     def merge_accumulators(self, accumulators, *args, **kwargs):
